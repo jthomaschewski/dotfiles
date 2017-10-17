@@ -1,0 +1,10 @@
+# load keyring daemon (ssh/pgp agent)
+dbus-update-activation-environment --systemd DISPLAY
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
+# hidpi setting 
+xrandr --dpi 220
+
+# start window manager
+exec i3
