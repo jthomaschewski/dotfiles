@@ -8,6 +8,9 @@
 #
 
 (
+  # define ZIM_HOME if its not defined yet (zsh < 5.2)
+  export ZIM_HOME=${ZIM_HOME:-"$HOME/.zim"}
+
   # Function to determine the need of a zcompile. If the .zwc file
   # does not exist, or the base file is newer, we need to compile.
   # These jobs are asynchronous, and will not impact the interactive shell
