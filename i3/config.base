@@ -3,7 +3,6 @@
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
-#set $mod Mod1
 set $mod2 Mod1
 
 # set default desktop layout (default is tiling)
@@ -29,7 +28,7 @@ bindsym $mod+n border normal
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec sakura
+bindsym $mod+Return exec $TERMINAL
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -51,6 +50,7 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # mouse focus setting
 focus_follows_mouse no
+mouse_warping none
 
 # change focus
 bindsym $mod+j focus left
@@ -115,7 +115,7 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-
+# move current workspace to different display
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
@@ -166,33 +166,6 @@ bindsym $mod+Shift+8 move container to workspace number 8; workspace 8
 # assign [class="Pcmanfm"] 3
 # assign [class="Skype"] 5
 
-# Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="Calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-gtk-greeter-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Thus"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-for_window [class="smplayer"] floating enable border normal
-
-
 # switch to workspace with urgent window automatically
 #for_window [urgent=latest] focus
 
@@ -229,65 +202,17 @@ mode "$mode_system" {
 bindsym --whole-window $mod+button2 kill
 bindsym --whole-window $mod+q kill
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up 2%
-bindsym XF86AudioLowerVolume exec pulseaudio-ctl down 2%
-bindsym XF86AudioMute exec pulseaudio-ctl mute
- 
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
- 
-# Sreen brightness controls
-#bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-#bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
-
-
 # Lock screen
-#bindsym $mod+9 exec --no-startup-id i3lock
-#bindsym $mod+9 exec --no-startup-id dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
-#bindsym $mod+9 exec --no-startup-id gnome-screensaver-command -l
 bindsym $mod+9 exec --no-startup-id i3exit lock
 
-
-# gpg/ssh agent from gnome3
-#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
-#exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
-
-# screensaver from gnome project
-#exec --no-startup-id gnome-screensaver
-
-# network manager applet
-#exec --no-startup-id nm-applet
-
-# integration with mate
-#exec --no-startup-id mate-settings-daemon
-#exec --no-startup-id mate-power-manager
-
-# integration with xfce
-#exec --no-startup-id xfsettingsd --sm-client-disable &
-#exec --no-startup-id xfce4-power-manager
-
-# integration with cinnammon
-# xrandr / display
-#exec --no-startup-id /usr/lib/cinnamon-settings-daemon/csd-xrandr
-#exec --no-startup-id /usr/lib/cinnamon-settings-daemon/csd-xsettings
-#exec --no-startup-id /usr/lib/cinnamon-settings-daemon/csd-power
-#exec --no-startup-id /usr/lib/cinnamon-settings-daemon/csd-screensaver-proxy
-#exec --no-startup-id /usr/lib/cinnamon-settings-daemon/csd-clipboard
-#exec --no-startup-id /usr/lib/cinnamon-settings-daemon/csd-printer
-#exec --no-startup-id /usr/lib/cinnamon-settings-daemon/csd-automount
+# Integration with Gnome
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id gnome-power-manager
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id gnome-flashback
 
 # autostart terminal 
-exec --no-startup-id sakura
-
-# exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
-
+exec --no-startup-id $TERMINAL
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {

@@ -1,8 +1,5 @@
-# load keyring daemon (ssh/pgp agent)
-dbus-update-activation-environment --systemd DISPLAY
-
 # hidpi setting 
 xrandr --dpi 220
 
 # start window manager
-exec i3
+# exec i3
