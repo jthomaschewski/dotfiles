@@ -145,13 +145,13 @@ load-module module-switch-on-connect
 
 
 # load module for rear audio ports of TB16
-.nofail
-  #load-module module-alsa-sink device=hw:2,1
-  load-module module-alsa-sink device=hw:Audio,1
-.endnofail
+#.nofail
+#  load-module module-alsa-sink device=hw:2,1
+#  load-module module-alsa-sink device=hw:Audio,1
+#.endnofail
 
 # add stereo-sink for UA-101 (5.1->stereo)
-.nofail
-  #load-module module-remap-sink sink_name=stereo remix=no master=0 channels=2 master_channel_map=front-left,front-right channel_map=front-left,front-right
-  load-module module-remap-sink sink_name=stereo remix=no master=alsa_output.usb-EDIROL_UA-101_ZU96688-00.multichannel-output channels=2 master_channel_map=front-left,front-right channel_map=front-left,front-right
-.endnofail
+#.nofail
+#  load-module module-remap-sink sink_name=stereo remix=no master=0 channels=2 master_channel_map=front-left,front-right channel_map=front-left,front-right
+#  load-module module-remap-sink sink_name=stereo remix=no master=alsa_output.usb-EDIROL_UA-101_ZU96688-00.multichannel-output channels=2 master_channel_map=front-left,front-right channel_map=front-left,front-right
+#.endnofail
