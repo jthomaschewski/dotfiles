@@ -36,7 +36,7 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 #bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --usage-log=$HOME/.dmenu.usage --display-binary --dmenu "dmenu -hist $HOME/.dmenu.history -b -l 10 -f -fn Sans-12" 
-bindsym $mod+d exec --no-startup-id "rofi -modi window,drun -show drun"
+bindsym $mod+d exec --no-startup-id "rofi -modi window,drun -matching fuzzy -show drun"
 
 
 # start audio server
