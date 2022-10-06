@@ -1,4 +1,0 @@
-export QT_QPA_PLATFORMTHEME="qt5ct"
-export EDITOR=vim
-export TERMINAL=gnome-terminal
-export PATH="$HOME/.dotfiles/bin:$HOME/.config/composer/vendor/bin:$HOME/.mos/bin:$HOME/bin:$PATH"

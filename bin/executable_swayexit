@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+lock() {
+    #dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
+    #xset dpms force off
+    #swaymsg "output * dpms standby" 
+    swaylock -f -c 000000
+    #qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock
+    #cinnamon-screensaver-command --lock
+}
+
+case "$1" in
+    lock)
+        lock
+        ;;
+    logout)
+        swaymsg exit
+        #dbus-send --print-reply --session --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.Logout "uint32:1"
+        #qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+        #qdbus org.kde.ksmserver /KSMServer logout 1 3 3
+		;;
+    suspend)
+        #lock && systemctl suspend
+        #systemctl suspend
+        systemctl suspend-then-hibernate
+        #qdbus org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement CanSuspend && qdbus org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Suspend
+        #lock && qdbus org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Suspend
+        ;;
+    hibernate)
+        systemctl hibernate
+        ;;
+    reboot)
+        systemctl reboot
+        ;;
+    shutdown)
+        #qdbus org.kde.ksmserver /KSMServer logout 0 2 2
+        systemctl poweroff
+        ;;
+    *)
+        echo "Usage: $0 [lock|logout|suspend|hibernate|reboot|shutdown]"
+        exit 2
+esac
+
+exit 0

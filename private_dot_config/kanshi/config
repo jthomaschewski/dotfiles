@@ -1,0 +1,51 @@
+profile mobile {
+  output eDP-1 enable scale 1.5
+}
+
+profile home_without_laptop {
+  output eDP-1 disable
+  output "Unknown 34CHR 0x00000000" enable mode 3440x1440@120Hz scale 1 position 0,730
+  #output "Unknown 34CHR 0x00000000" enable mode 3440x1440@100Hz scale 1 position 0,730
+  #output "Unknown 34CHR 0x00000000" enable mode 3440x1440@60Hz scale 1 position 0,730
+  output "Acer Technologies VG270U TEHEE004852C" enable mode 2560x1440@74.924Hz scale 1 transform 270 position 3440,0
+  #output "Acer Technologies VG270U TEHEE004852C" enable mode 2560x1440@60Hz scale 1 transform 270 position 3440,0
+
+  exec swaymsg workspace 2, move workspace to output '"Unknown 34CHR 0x00000000"'
+  exec swaymsg workspace 4, move workspace to output '"Unknown 34CHR 0x00000000"'
+  exec swaymsg workspace 5, move workspace to output '"Unknown 34CHR 0x00000000"'
+  exec swaymsg workspace 1, move workspace to output '"Unknown 34CHR 0x00000000"'
+  exec swaymsg workspace 3, move workspace to output '"Acer Technologies VG270U TEHEE004852C"'
+}
+
+profile home_without_laptop_swaygit {
+  output eDP-1 disable
+
+  output 'Beihai Century Joint Innovation Technology Co.,Ltd 34CHR Unknown' enable mode 3440x1440@120Hz scale 1 position 0,730
+  output "Acer Technologies VG270U TEHEE004852C" enable mode 2560x1440@74.924Hz scale 1 transform 270 position 3440,0
+
+  exec swaymsg workspace 2, move workspace to output DP-5
+  exec swaymsg workspace 4, move workspace to output DP-5
+  exec swaymsg workspace 5, move workspace to output DP-5
+  exec swaymsg workspace 1, move workspace to output DP-5
+  exec swaymsg workspace 3, move workspace to output '"Acer Technologies VG270U TEHEE004852C"'
+}
+
+profile pdm {
+  output eDP-1 disable
+  output "Philips Consumer Electronics Company PHL BDM4065 0x00001C42" enable mode 3840x2160@60Hz scale 1
+}
+
+profile zen_dual_wide_mi {
+  output eDP-1 disable
+  #output "Unknown Mi Monitor 0x00000000" enable mode 3440x1440@59.999 scale 1 position 0,730
+  #output "Unknown Mi Monitor 0x00000000" enable mode 3440x1440@100 scale 1 position 0,730
+  #output "Unknown Mi Monitor 0x00000000" enable mode 3440x1440@99.998 scale 1 position 0,730
+  output "Unknown Mi Monitor 0x00000000" enable mode 3440x1440@120 scale 1 position 0,730
+  output "Lenovo Group Limited LEN L27q-30 U161ZY2T" enable mode 2560x1440@74.780 scale 1 transform 270 position 3440,0
+  #output "Lenovo Group Limited LEN L27q-30 U161ZY2T" enable mode 2560x1440@59.951 scale 1 transform 270 position 3440,0
+}
+profile zen_dual_wide_mi_swaygit {
+  output eDP-1 disable
+  output "XMI Mi Monitor Unknown" enable mode 3440x1440@120 scale 1 position 0,730
+  output "Lenovo Group Limited LEN L27q-30 U161ZY2T" enable mode 2560x1440@74.780 scale 1 transform 270 position 3440,0
+}

@@ -1,0 +1,40 @@
+[user]
+	email = janek@thomaschewski.dev
+	name = Janek Thomaschewski
+
+[core]
+        autocrlf = input
+        pager = diff-so-fancy | less --tabs=4 -RFX
+
+[color]
+	ui = true
+
+[color "diff-highlight"]
+        oldNormal = red bold
+        oldHighlight = red bold 52
+        newNormal = green bold
+        newHighlight = green bold 22
+
+[color "diff"]
+        meta = 11
+        frag = magenta bold
+        commit = yellow bold
+        old = red bold
+        new = green bold
+        whitespace = red reverse
+        func = 146 bold
+
+[push]
+        default = simple
+        autoSetupRemote = true
+
+[merge]
+        renameLimit = 999999
+[diff]
+	renameLimit = 999999
+
+[interactive]
+	diffFilter = diff-so-fancy --patch
+
+[init]
+	defaultBranch = main

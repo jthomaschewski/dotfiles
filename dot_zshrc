@@ -1,0 +1,26 @@
+autoload -Uz compinit && compinit
+
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+antidote load
+
+autoload -Uz promptinit && promptinit && prompt pure
+
+
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+alias ls='exa --icons --color-scale'
+alias l='ls -g -l'
+alias ll='ls -g -l'
+
+alias vim="nvim"
+
+alias dk='docker-compose'
+alias dke='docker-compose exec'
+alias dkr='docker-compose run --rm'
+
+# fix aliases when using sudo
+alias sudo='nocorrect sudo '
+
+source /usr/share/nvm/init-nvm.sh
+

@@ -1,5 +1,0 @@
-# hidpi setting 
-xrandr --dpi 220
-
-# start window manager
-# exec i3

@@ -1,0 +1,7 @@
+import:
+  - ~/.config/alacritty/alacritty.base.yml
+
+colors:
+  primary:
+    background: '#1d1f21'
+    foreground: '#ffffff'
