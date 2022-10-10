@@ -137,7 +137,10 @@
 		"tooltip-format": "{ifname} via {gwaddr} ",
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "Disconnected ⚠",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+		"format-alt": "{ifname}: {ipaddr}/{cidr}",
+		"max-length": 50,
+		"on-click": "gnome-control-center wifi",
+		"on-click-right": "gnome-control-center wifi"
 	},
 	"pulseaudio": {
 		"scroll-step": 1, // %, can be a float
@@ -162,10 +165,6 @@
 		},
 		"on-click": "gnome-control-center sound"
 	},
-	"cpu": {
-		"interval": 15,
-		"format": " {usage:2}%"
-	},
 	"battery": {
 		"states": {
 			"good": 95,
@@ -173,6 +172,7 @@
 			"critical": 15
 		},
 		"format": "{icon} {capacity}%",
+		"format-alt": "{icon} {power}W {time}",
 		"format-icons": [
 			"",
 			"",
@@ -207,6 +207,7 @@
 		}
 	},
 	"tray": {
-		"icon-size": 20
+		"icon-size": 20,
+		"spacing": 5
 	}
 }
