@@ -1,0 +1,5 @@
+[Default]
+save_dir=$HOME/pic/screenshots
+paint_mode=arrow
+show_panel=true
+

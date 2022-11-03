@@ -1,0 +1,10 @@
+[".tmux/plugins/tpm"]
+type = "git-repo"
+url = "https://github.com/tmux-plugins/tpm"
+refreshPeriod = "168h"
+
+
+[".tmux/plugins/tmux-sensible"]
+type = "git-repo"
+url = "https://github.com/tmux-plugins/tmux-sensible"
+refreshPeriod = "168h"
